@@ -15,12 +15,16 @@ async function checkWeather(city) {
     response.json()
   );
 
-  console.log(weather_data);
-}
+  temprature.innerHTML = `${Math.round(weather_data.main.temp - 273.15)}°C`;
 
-searchBtn.addEventListener("click", () => {
-  checkWeather(inputBox.value);
-});
+  description.innerHTML = `${weather_data.weather[0].description}`;
+
+  humidty.innerHTML = `${weather_data.main.humidity}%`;
+
+  wind_speed.innerHTML = `${weather_data.wind.speed}Km/H`;
+
+  //   console.log(weather_data);
+}
 
 searchBtn.addEventListener("click", () => {
   checkWeather(inputBox.value);
